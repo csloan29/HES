@@ -9,11 +9,34 @@
 	<h1>Welcome to Evil Hangman &#128520;</h1>
 
 	<div id='game-board'>
-		<h3>How many letters should we try to guess? Input a number between 1-18 please</h3>
-		<input id='word-length' type='text' placeholder="try 3 for starters..."/>
-		<button id='length-btn'>Submit</button>
-		<div>
-			<p>(Basically, I'm gonna think of AAALLL the words that could possibly be the word you've guessed so far... sounds fun, right?)</p>
+		<div style="margin-bottom: 20px;">
+			<label for="word-length">How many letters should we try to guess?</label>
+			<div style="width: 15%">
+				<input id='word-length' type='text' placeholder="Number between 1-18" style="width: 100%"/>
+			</div>
+		</div>
+		<div style="margin-bottom: 20px;">
+			<label for="guess-number">How many attempts do you want?</label>
+			<div style="width: 15%">
+				<input id='guess-number' type='text' placeholder="Number between 1-26" style="width: 100%"/>
+			</div>
+		</div>
+		<button id='length-btn'>Start</button>
+		<div style="width: 30%">
+			<div>
+				<p>
+					Here's how this works...
+					You guess letters, and I'm going to think of all the words your guesses could possibly be so far.
+					Do you think you can beat me by whittling down my options to only one word?
+					Sounds fun, right?
+				</p>
+			</div>
+			<div>
+				<p>
+					This concept came from a command line Java application I built while an undergrad.
+					Everything here was build from scratch, I only used the concept and high-level algorithm to start.
+				</p>
+			</div>
 		</div>
 	</div>
 

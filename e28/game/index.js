@@ -4,15 +4,23 @@ let lengthButton = document.querySelector('#length-btn');
 lengthButton.addEventListener('click', onWordLengthSubmit);
 
 //game parameters
-let wordLength = 0;
-let guessesLeft = 10;
+let wordLength = 5;
+let guessesLeft = 15;
 let wordComplete = false;
 let workingLibrary = [];
 let workingLibKey = '';
 let guessList = [];
 
 function onWordLengthSubmit() {
-	wordLength = document.getElementById('word-length').value;
+	let wordCheck = document.getElementById('word-length').value;
+	if (wordCheck != null && wordCheck != undefined && wordCheck != '') {
+		wordLength = wordCheck;
+	}
+
+	let guessCheck = document.getElementById('guess-number').value;
+	if (guessCheck != null && guessCheck != undefined && guessCheck != '') {
+		guessesLeft = guessCheck;
+	}
 
 	//generate initial working library key
 	for (let i = 0; i < wordLength; i++) {
