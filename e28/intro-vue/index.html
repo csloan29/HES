@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+	<script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js' defer></script>
+	<script src='./script.js' defer></script>
+	<link rel="stylesheet" href="styles.css">
+	<title>Week 3 - Vue.js Intro</title>
+</head>
+<body>
+	<h1>Week 3 - Vue.js Intro</h1>
+	<div id='app' v-cloak>
+		<div v-if='!startGame'>
+			<label>Enter your player name:
+				<input type='text' v-model='playerName'>
+			</label>
+			<button v-on:click='startGame = true'>Start</button>
+		</div> 
+		<div v-if='startGame'>
+			<p>Ok, {{ playerName }} - I'm thinking of a number between 0 and 50. What do you think it is?</p>
+
+			<label>Enter your guess:
+				<input type='text' v-model='guess'>
+			</label>
+			<button v-on:click='guesses.push(guess)'>Guess</button>
+
+			<ul>
+				<li v-for='thisGuess in guesses'>{{ thisGuess }}</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
