@@ -5,6 +5,11 @@ let app = new Vue({
 		startGame: false,
 		playerName: '',
 		guesses: [],
-		guess: null
+		guess: null,
+		check: {
+			one: 1,
+			two: '2'
+		},
+		myArr: [1, 2]
 	}
 })

@@ -11,12 +11,13 @@
 <body>
 	<h1>Week 3 - Vue.js Intro</h1>
 	<div id='app' v-cloak>
+		<div>{{myArr}}</div>
 		<div v-if='!startGame'>
 			<label>Enter your player name:
 				<input type='text' v-model='playerName'>
 			</label>
 			<button v-on:click='startGame = true'>Start</button>
-		</div> 
+		</div>
 		<div v-if='startGame'>
 			<p>Ok, {{ playerName }} - I'm thinking of a number between 0 and 50. What do you think it is?</p>
 
