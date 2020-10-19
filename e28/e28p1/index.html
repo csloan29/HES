@@ -1,1 +1,68 @@
-Project - Part 1
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+
+	<script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js' defer></script>
+	<script src='./app.js' defer></script>
+	<link rel='stylesheet' href='styles.css'>
+
+	<title>Project 1: Evil Hangman</title>
+</head>
+<body>
+	<div id='app' v-cloak>
+		<div class='game'>
+			<h1>🕸️ 👻 🎃 😈 🎃 👻 🕸️</h1>
+			<h1 v-bind:class="[{'game-won': gameWon}, {'game-lost': gameLost}, 'main-title']"> {{ mainTitle }} </h1>
+
+			<!-- GAME SETUP -->
+			<div id='game-setup' v-if='gameStart'>
+				<div class='start-game-item'>
+					<label for='word-length'>How many letters do you want in your word?</label>
+					<div>
+						<input v-model='wordLength' class='game-input' type='text' placeholder='Number between 1-18'/>
+					</div>
+				</div>
+				<div class='start-game-item'>
+					<label for='guess-number'>How many attempts do you want to guess letters?</label>
+					<div>
+						<input v-model='guessAmount' class='game-input' type='text' placeholder='Number greater than 0'/>
+					</div>
+				</div>
+				<button class='btn game-button' type='button' @click='startGame'><span>Start</span></button>
+			</div>
+
+			<!-- GAME RUNNING -->
+			<div id='game-board' v-if='gameRunning'>
+				<h3 class='game-key-text'>{{ displayKey }}</h3>
+				<div class='game-guess-input'>
+					<input class='game-input' type='text' v-model='guessInput' placeholder='guess here...'/>
+					<button class='btn' type='button' @click='makeGuess'><span>Guess</span></button>
+				</div>
+				<div class="guess-data">
+					<div>Guesses Left: {{ guessAmount }}</div>
+					<div>Your Guesses: [ {{formattedGuessList}} ]</div>
+				</div>
+				<button class='btn game-button' type='button' @click='toggleLibrary'><span> {{ workingLibraryButtonText }} </span></button>
+			</div>
+
+			<!-- GAME OVER -->
+			<div id='game-over' v-if='gameWon || gameLost'>
+				<div id='game-over-msg'>{{ gameOverMsg }}</div>
+				<button class='btn game-button' type='button' @click='resetToStart'><span>Yes</span></button>
+			</div>
+
+			<!-- ERROR DISPLAY -->
+			<error-display v-show='errorPresent' class='error'> {{ errorMessage }} </error-display>
+
+			<!-- SCOREBOARD -->
+			<score-board class='score-board' :player-score='playerScore' :computer-score='computerScore' :game-history='gameHistory'></score-board>
+		</div>
+
+		<!-- SIDE PANEL FOR WORKING LIBRARY -->
+		<working-library class='library-container' v-if='showWorkingLibrary' :working-library='workingLibrary'></working-library>
+	</div>
+
+</body>
+</html>

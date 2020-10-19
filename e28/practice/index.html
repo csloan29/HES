@@ -1,1 +1,18 @@
-<h1>Welcome to Practice</h1>
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset='UTF-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+	<script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js' defer></script>
+	<script src='./script.js' defer></script>
+	<link rel="stylesheet" href="styles.css">
+	<title>Practice</title>
+</head>
+<body>
+	<h1>Practice Section</h1>
+	<div id='app' v-cloak>
+		<div class='a' v-bind:class="['b', 'c', { d : true }]"></div>
+	</div>
+</body>
+</html>
+

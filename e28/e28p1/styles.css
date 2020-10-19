@@ -1,0 +1,113 @@
+/* Vue-specific CSS */
+
+[v-cloak] {
+    display: none
+}
+
+/* GENERAL CSS */
+
+html {
+	position: relative;
+	height: 100%;
+}
+
+body {
+	background-color: #ecf0f1;
+	color: #34495e;
+	font-family: Trebuchet, Arial, sans-serif;
+	text-align: center;
+}
+
+/* GAMEBOARD CLASSES */
+
+.game {
+	width: 50%;
+	margin: auto;
+}
+
+.game-input {
+	width: 25%;
+	margin: 10px auto 0 auto;
+}
+
+.start-game-item {
+	margin-top: 30px;
+}
+
+.game-guess-input {
+	margin-top: 4%;
+}
+
+.game-key-text {
+	font-size:x-large;
+	font-weight: bold;
+}
+
+.game-button {
+	margin-top: 50px;
+}
+
+.game-won {
+	color: #29EB83;
+}
+
+.game-lost {
+	color: #9E2023;
+}
+
+.guess-data {
+	margin-top: 30px;
+}
+
+/* SCOREBOARD CLASSES */
+
+.score-board {
+	margin: 50px auto 0px auto;
+	padding-bottom: 20px;
+	width: 70%;
+	border: 1px solid #ccc!important;
+	border-radius: 16px;
+}
+
+.scoreboard-container {
+	display: flex;
+	margin: 10px auto 10px auto;
+}
+
+.scoreboard-item {
+	flex: 50%;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.scoreboard-history-none {
+	color: #b3b3b3;
+}
+
+.left-his {
+	text-align: right;
+}
+
+.right-his {
+	text-align: left;
+}
+
+/* WORKING LIBRARY CLASSES */
+
+.library-container {
+	margin: 30px auto 0 auto;
+	width: 50%;
+	color: #b3b3b3;
+}
+
+.library-list {
+	margin: 15px auto 0 auto;
+}
+
+/* ERROR CLASSES */
+
+.error {
+	margin-top: 30px;
+	color: #D94432;
+	opacity: 0.8;
+}

@@ -1,0 +1,19 @@
+[v-cloak] {
+    display: none
+}
+
+.a {
+	width: 100%;
+}
+
+.b {
+	height: 100%;
+}
+
+.c {
+	color: red;
+}
+
+.d {
+	font-size: 16px;
+}
