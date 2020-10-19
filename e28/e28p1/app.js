@@ -412,7 +412,7 @@ const app = new Vue({
 		resetToStart: function() {
 			this.mainTitle = 'Welcome To Evil Hangman';
 			this.gameState = this.gameStates.GAME_START;
-			this.workingLibrary = [];
+			this.workingLibrary = this.startingLibrary;
 			this.workingKey = '';
 			this.showWorkingLibrary = false;
 			this.guessAmount = '';
