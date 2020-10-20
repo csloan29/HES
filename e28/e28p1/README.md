@@ -9,6 +9,6 @@
 + [Halloween Emojis](https://emojipedia.org/halloween/)
 
 ## Notes for instructor
-+ One thing to mention: The server is actually not running the latest commit but a [prior commit](https://github.com/csloan29/HES/commit/f26bb14ec0d0d003b71347710d24b0f8ec3f67d1). The final commit number was made to shorten the list of incuded words at the beginning of the app.js file so that you didn't need to scroll forever in github to finally find the rest of the app. (Also, I tried several different ways of including the list of words in in the Vue instance but none played nicely with Vue on it's own. I'm sure there is a way to do it with a whole Vue-cli environment setup, but stripped down like this, this was the only way I could figure.)
++ One thing to mention: The server is actually not running the latest commit but a [prior commit](https://github.com/csloan29/HES/commit/4896cf0819a03aee84b8619cb59c93875fe95306). The final commit number was made to shorten the list of incuded words at the beginning of the app.js file so that you didn't need to scroll forever in github to finally find the rest of the app. (Also, I tried several different ways of including the list of words in in the Vue instance but none played nicely with Vue on it's own. I'm sure there is a way to do it with a whole Vue-cli environment setup, but stripped down like this using only Vue from cdn, this was the only way I could make work.)
 
 
