@@ -92,6 +92,10 @@ body {
 	text-align: left;
 }
 
+.scoreboard-btn-reset {
+	margin-top: 20px;
+}
+
 /* WORKING LIBRARY CLASSES */
 
 .library-container {
