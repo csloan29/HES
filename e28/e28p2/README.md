@@ -1,9 +1,24 @@
-# Project 2
-+ By: Carter Sloan
-+ Production URL: <http://e28p2.cartersloan.xyz>
+# e28p2
 
-## Outside resources
-*your list of outside resources go here*
+## Project setup
+```
+npm install
+```
 
-## Notes for instructor
-*any notes for me to refer to while grading; if none, omit this section*
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
