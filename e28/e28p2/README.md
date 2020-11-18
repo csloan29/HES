@@ -3,10 +3,11 @@
 + Production URL: <http://e28p2.cartersloan.xyz>
 
 ## Pages summary
-+ Home Page
-+ Favorites Page
++ Home Page - landing page for product
++ Inventory Page - shows a list of all the available products
++ Favorites Page - shows a list of all favorited items (next iteration - ability to modify list)
 + Cart Page
-+ Product Page
++ Product Page - shows information for individual products
 + Search Page (next iteration)
 
 ## SFC summary
