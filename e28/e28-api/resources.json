@@ -1,0 +1,84 @@
+{
+	"product": {
+		"title": {
+			"type": "text",
+			"validators": [
+				"required",
+				"min:3",
+				"max:100"
+			]
+		},
+		"price": {
+			"type": "integer",
+			"validators": [
+				"required",
+				"numeric"
+			]
+		},
+		"tagline": {
+			"type": "text",
+			"validators": [
+				"required",
+				"min:5"
+			]
+		},
+		"description": {
+			"type": "text",
+			"validators": [
+				"required"
+			]
+		},
+		"image": {
+			"type": "string",
+			"validators": [
+				"required",
+				"min:5"
+			]
+		},
+		"link": {
+			"type": "string",
+			"validators": [
+				"required",
+				"min:5"
+			]
+		},
+		"favorite": {
+			"type": "boolean",
+			"validators": [
+				"required"
+			]
+		}
+	},
+	"review": {
+		"id_product": {
+			"type": "integer",
+			"validators": [
+				"required",
+				"numeric"
+			]
+		},
+		"title": {
+			"type": "text",
+			"validators": [
+				"required",
+				"min:3",
+				"max:100"
+			]
+		},
+		"description": {
+			"type": "text",
+			"validators": [
+				"required"
+			]
+		}
+	},
+	"cart": {
+		"id_product": {
+			"type": "integer",
+			"validators": [
+				"required",
+				"numeric"
+			]
+		}
+	}
+}
