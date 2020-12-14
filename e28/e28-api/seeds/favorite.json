@@ -1,0 +1,16 @@
+{
+	"seeds": [
+		{
+			"id_product": 3
+		},
+		{
+			"id_product": 7
+		},
+		{
+			"id_product": 8
+		},
+		{
+			"id_product": 9
+		}
+	]
+}

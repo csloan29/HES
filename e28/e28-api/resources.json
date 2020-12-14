@@ -80,5 +80,14 @@
 				"numeric"
 			]
 		}
+	},
+	"favorite": {
+		"id_product": {
+			"type": "integer",
+			"validators": [
+				"required",
+				"numeric"
+			]
+		}
 	}
 }
