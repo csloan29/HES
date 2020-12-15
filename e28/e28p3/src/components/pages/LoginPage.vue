@@ -23,6 +23,7 @@
 					<v-btn
 						depressed
 						color="accent"
+						@click="login"
 						>
 						Submit
 					</v-btn>
@@ -48,17 +49,27 @@
 </template>
 
 <script>
+import { axios } from '@/common/app.js';
+
 export default {
 	data: function() {
 		return {
 			email: "",
-			password: ""
+			password: "",
+			errors: null
 		}
 	},
 	methods: {
 		login() {
-			//todo
-			return;
+            axios.post('login', {"email": this.email, "password": this.password}).then((response) => {
+                if (response.data.authenticated) {
+					this.$store.dispatch('setMessage', {"message": "Successfully Logged In", "error": false});
+					this.$store.dispatch('setUser', response.data.user);
+					this.$router.push('/');
+                } else {
+					console.log('could not login');
+                }
+            });
 		}
 	}
 

@@ -30,20 +30,11 @@
 
 		<v-spacer></v-spacer>
 
-		<router-link
-			v-bind:to="'/favorites'"
-		>
-			<v-btn icon>
-				<v-icon>mdi-heart</v-icon>
-			</v-btn>
-		</router-link>
-
-		<router-link
-			v-bind:to="'/cart'"
-		>
+		<router-link v-bind:to="'/cart'">
 			<v-badge
 				color="accent"
 				:content="this.cartSize"
+				:value="Boolean(this.cartSize)"
 				offset-x="20"
 				offset-y="25"
 			>
@@ -53,13 +44,54 @@
 			</v-badge>
 		</router-link>
 
-		<router-link
-			v-bind:to="'/login'"
+		<v-menu
+			offset-y
+			open-on-hover
+			close-delay="200"
+			min-width="200px"
 		>
-			<v-btn icon>
-				<v-icon>mdi-account-circle</v-icon>
-			</v-btn>
-		</router-link>
+			<template v-slot:activator="{on, attrs}">
+				<v-btn icon v-bind="attrs" v-on="on">
+					<v-icon>mdi-account-circle</v-icon>
+				</v-btn>
+			</template>
+
+			<v-list>
+				<v-list-item v-if="Boolean(this.loggedIn)">
+					<router-link v-bind:to="'/account'" class="nav-link">
+						<v-list-item-icon class="d-inline-flex">
+							<v-icon>mdi-account</v-icon>
+						</v-list-item-icon>
+						<v-list-item-content class="d-inline-flex">
+							<v-list-item-title>Account</v-list-item-title>
+						</v-list-item-content>
+					</router-link>
+				</v-list-item>
+
+				<v-list-item v-else>
+					<router-link v-bind:to="'/login'" class="nav-link">
+						<v-list-item-icon class="d-inline-flex">
+							<v-icon>mdi-account</v-icon>
+						</v-list-item-icon>
+						<v-list-item-content class="d-inline-flex">
+							<v-list-item-title>Login/Sign Up</v-list-item-title>
+						</v-list-item-content>
+					</router-link>
+				</v-list-item>
+
+				<v-list-item v-if="Boolean(this.loggedIn)">
+					<router-link v-bind:to="'/favorites'" class="nav-link">
+						<v-list-item-icon class="d-inline-flex">
+							<v-icon>mdi-heart</v-icon>
+						</v-list-item-icon>
+						<v-list-item-content class="d-inline-flex">
+							<v-list-item-title>Favorites</v-list-item-title>
+						</v-list-item-content>
+					</router-link>
+				</v-list-item>
+			</v-list>
+		</v-menu>
+
 	</v-app-bar>
 </template>
 
@@ -68,11 +100,16 @@ export default {
 	computed: {
 		cartSize() {
 			return this.$store.state.cart.length;
+		},
+		loggedIn() {
+			return this.$store.state.user;
 		}
 	},
 }
 </script>
 
 <style>
-
+	.nav-link {
+		text-decoration: none;
+	}
 </style>

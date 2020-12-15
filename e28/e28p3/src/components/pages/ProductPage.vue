@@ -26,7 +26,6 @@
 					<h2>{{this.product.title}}</h2>
 					<add-favorite-icon
 						:id="product.id"
-						:favorite="product.favorite"
 						class="ml-auto"
 					>
 					</add-favorite-icon>
@@ -85,7 +84,6 @@ export default {
 	},
 	methods: {
 		addToCart: function() {
-			//todo: add user id here too
 			this.$store.dispatch('addToCart', this.id);
 		}
 	},

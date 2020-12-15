@@ -5,47 +5,37 @@
 			@click="toggleFavorite"
 		>
 			<v-icon
-				v-if="this.favorite == true"
+				v-if="this.favorite != undefined"
 				color="#91E0AC"
 			>mdi-heart</v-icon>
 			<v-icon v-else>mdi-heart</v-icon>
 		</v-btn>
 
-		<v-snackbar v-model="snackbar">
-			<div v-if="favorite">Added To Favorites</div>
-			<div v-else>Removed From Favorites</div>
-			<div>(not implemented yet)</div>
-			<template v-slot:action="{ attrs }">
-				<v-btn
-				color="accent"
-				text
-				v-bind="attrs"
-				@click="snackbar = false"
-				>
-				Close
-				</v-btn>
-			</template>
-		</v-snackbar>
 	</div>
 </template>
 
 <script>
 export default {
-	props: ['id', 'favorite'],
-	data: function() {
-		return {
-			'snackbar': false,
+	props: ['id'],
+	computed: {
+		favorite() {
+			return this.$store.state.favorites.find(({product_id}) => product_id == this.id);
+		},
+		user() {
+			return this.$store.state.user;
 		}
 	},
 	methods: {
 		toggleFavorite: function() {
-			//todo: add user id to this dispatch
-			if (this.favorite) {
-				this.$store.dispatch('removeFromFavorites', this.id);
+			if (this.user == null) {
+				this.$store.dispatch('setMessage', {"message": "Please Log In to Add Favorites", "error": true});
 			} else {
-				this.$store.dispatch('addToFavorites', this.id);
+				if (this.favorite != undefined) {
+					this.$store.dispatch('removeFavorite', this.id);
+				} else {
+					this.$store.dispatch('addFavorite', this.id);
+				}
 			}
-			this.snackbar = true;
 		}
 	}
 }

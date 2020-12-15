@@ -30,7 +30,6 @@
 
 					<add-favorite-icon
 						:id="product.id"
-						:favorite="product.favorite"
 					></add-favorite-icon>
 				</v-card-actions>
 			</v-card>

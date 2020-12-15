@@ -61,10 +61,7 @@
 					<v-col cols="3">
 						<v-container fill-height class="pl-0">
 							<v-btn
-								color="primary"
-								outlined
-								fab
-								x-small
+								icon
 								class="mr-1"
 								@click="decrementProduct(cartObj.product.id)"
 							>
@@ -72,10 +69,7 @@
 							</v-btn>
 							{{ cartObj.quantity }}
 							<v-btn
-								color="primary"
-								outlined
-								fab
-								x-small
+								icon
 								class="ml-1"
 								@click="incrementProduct(cartObj.product.id)"
 							>
@@ -154,14 +148,10 @@ export default {
 			let obj = {};
 			this.cart.forEach((cartObj) => {
 				this.products.forEach((product) => {
-					if (cartObj.id_product == product.id) {
-						if (obj[cartObj.id_product] != null) {
-							obj[cartObj.id_product]['quantity'] += 1;
-						} else {
-							obj[cartObj.id_product] = {
-								'product': product,
-								'quantity': 1
-							}
+					if (cartObj.product_id == product.id) {
+						obj[cartObj.product_id] = {
+							'product': product,
+							'quantity': cartObj.quantity
 						}
 					}
 				});
@@ -178,12 +168,10 @@ export default {
 	},
 	methods: {
 		incrementProduct(productId) {
-			//todo: add user id here too
-			this.store.dispatch('addToCart', productId);
+			this.$store.dispatch('addToCart', productId);
 		},
 		decrementProduct(productId) {
-			//todo: add user id here too
-			this.store.dispatch('removeFromCart', productId);
+			this.$store.dispatch('removeFromCart', productId);
 		},
 		checkout: function() {
 			this.snackbar = true;

@@ -49,40 +49,15 @@
 			]
 		}
 	},
-	"review": {
-		"id_product": {
-			"type": "integer",
-			"validators": [
-				"required",
-				"numeric"
-			]
-		},
-		"title": {
-			"type": "text",
-			"validators": [
-				"required",
-				"min:3",
-				"max:100"
-			]
-		},
-		"description": {
-			"type": "text",
-			"validators": [
-				"required"
-			]
-		}
-	},
-	"cart": {
-		"id_product": {
-			"type": "integer",
-			"validators": [
-				"required",
-				"numeric"
-			]
-		}
-	},
 	"favorite": {
-		"id_product": {
+		"user_id": {
+			"type": "integer",
+			"validators": [
+				"required",
+				"numeric"
+			]
+		},
+		"product_id": {
 			"type": "integer",
 			"validators": [
 				"required",

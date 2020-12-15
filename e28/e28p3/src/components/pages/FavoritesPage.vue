@@ -23,12 +23,17 @@ export default {
 		products() {
 			return this.$store.state.products;
 		},
+		favorites() {
+			return this.$store.state.favorites;
+		},
 		favoriteProducts() {
 			let arr = [];
-			this.products.forEach((p) => {
-				if (p.favorite == true) {
-					arr.push(p);
-				}
+			this.favorites.forEach((fav) => {
+				this.products.forEach((product) => {
+					if (fav.product_id == product.id) {
+						arr.push(product);
+					}
+				});
 			});
 			return arr;
 		}
