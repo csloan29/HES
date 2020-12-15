@@ -23,7 +23,7 @@
 					>
 				</fa-rating>
 				<div class="d-flex">
-					<h2>{{this.product.title}}</h2>
+					<h2 data-test="product-page-title">{{this.product.title}}</h2>
 					<add-favorite-icon
 						:id="product.id"
 						class="ml-auto"
@@ -37,6 +37,7 @@
 					color="accent"
 					class="mx-auto mt-5"
 					@click="addToCart"
+					data-test="product-page-add-to-cart-button"
 				>Add To Cart
 				</v-btn>
 				<v-container fluid class="mt-5">

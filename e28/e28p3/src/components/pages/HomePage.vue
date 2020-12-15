@@ -34,7 +34,7 @@
 		</v-carousel>
 
 		<div class="d-flex justify-center text-h4 mt-10">
-			<h1>Featured Packs</h1>
+			<h1 data-test="home-page-title">Featured Packs</h1>
 		</div>
 		<product-list
 			:productList=products

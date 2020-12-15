@@ -16,6 +16,7 @@
 					src="../../assets/favicon/android-chrome-512x512.png"
 					transition="scale-transition"
 					width="40"
+					data-test="appbar-home"
 				/>
 				<v-img
 					alt="Vuetify Name"
@@ -37,9 +38,10 @@
 				:value="Boolean(this.cartSize)"
 				offset-x="20"
 				offset-y="25"
+				data-test="appbar-cart-badge"
 			>
 				<v-btn icon>
-					<v-icon>fa fa-shopping-cart</v-icon>
+					<v-icon data-test="appbar-cart">fa fa-shopping-cart</v-icon>
 				</v-btn>
 			</v-badge>
 		</router-link>
@@ -60,7 +62,7 @@
 				<v-list-item v-if="Boolean(this.loggedIn)">
 					<router-link v-bind:to="'/account'" class="nav-link">
 						<v-list-item-icon class="d-inline-flex">
-							<v-icon>mdi-account</v-icon>
+							<v-icon data-test="appbar-account">mdi-account</v-icon>
 						</v-list-item-icon>
 						<v-list-item-content class="d-inline-flex">
 							<v-list-item-title>Account</v-list-item-title>
@@ -71,7 +73,7 @@
 				<v-list-item v-else>
 					<router-link v-bind:to="'/login'" class="nav-link">
 						<v-list-item-icon class="d-inline-flex">
-							<v-icon>mdi-account</v-icon>
+							<v-icon data-test="appbar-login">mdi-account</v-icon>
 						</v-list-item-icon>
 						<v-list-item-content class="d-inline-flex">
 							<v-list-item-title>Login/Sign Up</v-list-item-title>
@@ -82,7 +84,7 @@
 				<v-list-item v-if="Boolean(this.loggedIn)">
 					<router-link v-bind:to="'/favorites'" class="nav-link">
 						<v-list-item-icon class="d-inline-flex">
-							<v-icon>mdi-heart</v-icon>
+							<v-icon data-test="appbar-favorites">mdi-heart</v-icon>
 						</v-list-item-icon>
 						<v-list-item-content class="d-inline-flex">
 							<v-list-item-title>Favorites</v-list-item-title>

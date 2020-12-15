@@ -47,7 +47,7 @@
 								</v-col>
 								<v-col cols="5">
 									<v-container fill-height class="pl-0">
-										<div> {{ cartObj.product.title }} </div>
+										<div data-test="cart-product-title"> {{ cartObj.product.title }} </div>
 									</v-container>
 								</v-col>
 							</v-row>
@@ -64,6 +64,7 @@
 								icon
 								class="mr-1"
 								@click="decrementProduct(cartObj.product.id)"
+								data-test="cart-product-decrement-button"
 							>
 								<v-icon>mdi-minus</v-icon>
 							</v-btn>
@@ -72,6 +73,7 @@
 								icon
 								class="ml-1"
 								@click="incrementProduct(cartObj.product.id)"
+								data-test="cart-product-increment-button"
 							>
 								<v-icon>mdi-plus</v-icon>
 							</v-btn>
@@ -92,7 +94,7 @@
 					</v-container>
 				</v-col>
 				<v-col cols="1">
-					<v-container class="pl-0">
+					<v-container class="pl-0" data-test="cart-subtotal">
 						${{ Number(subTotal).toFixed(2) }}
 					</v-container>
 				</v-col>
