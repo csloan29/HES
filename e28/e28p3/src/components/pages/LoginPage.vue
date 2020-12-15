@@ -13,14 +13,15 @@
 						solo
 						label="Email"
 						:rules="[rules.required, rules.email]"
-						clearable
 					></v-text-field>
 					<v-text-field
+						:append-icon="showPass? 'mdi-eye' : 'mdi-eye-off'"
+						:type="showPass ? 'text' : 'password'"
 						v-model="password"
 						solo
 						label="Password"
-						:rules="[rules.required]"
-						clearable
+						:rules="[rules.required, rules.passwordMin]"
+						@click:append="showPass = !showPass"
 					></v-text-field>
 					<v-btn
 						depressed
@@ -58,8 +59,10 @@ export default {
 		return {
 			email: "",
 			password: "",
+			showPass: false,
 			rules: {
 				required: value => !!value || 'Required.',
+				passwordMin: v => v.length >= 8 || 'Min 8 characters',
 				email: value => {
 					const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 					return pattern.test(value) || 'Invalid e-mail.'
