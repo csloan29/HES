@@ -71,14 +71,14 @@ export default {
 	methods: {
 		login() {
             axios.post('login', {"email": this.email, "password": this.password}).then((response) => {
-                if (response.data.authenticated) {
+				if (response.data.authenticated) {
 					this.$store.dispatch('setMessage', {"message": "Successfully Logged In", "error": false});
 					this.$store.dispatch('setUser', response.data.user);
 					this.$router.push('/');
-                } else {
-					console.log('could not login');
-                }
-            });
+				} else {
+					this.$store.dispatch('setMessage', {"message": "Login Unsuccessful", "error": true});
+				}
+			});
 		}
 	}
 
