@@ -12,12 +12,14 @@
 						v-model="email"
 						solo
 						label="Email"
+						:rules="[rules.required, rules.email]"
 						clearable
 					></v-text-field>
 					<v-text-field
 						v-model="password"
 						solo
 						label="Password"
+						:rules="[rules.required]"
 						clearable
 					></v-text-field>
 					<v-btn
@@ -56,7 +58,14 @@ export default {
 		return {
 			email: "",
 			password: "",
-			errors: null
+			rules: {
+				required: value => !!value || 'Required.',
+				counter: value => value.length <= 20 || 'Max 20 characters',
+				email: value => {
+					const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+					return pattern.test(value) || 'Invalid e-mail.'
+				},
+			},
 		}
 	},
 	methods: {
